@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:relive_travel/routes/route_name.dart';
+import 'package:relive_travel/routes/route_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,21 +10,17 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-        ),
-        home: Scaffold(
-          appBar: AppBar(
-            title: Text("Relive Travel"),
-          ),
-          body: Center(
-            child: Text("init"),
-          ),
-        ));
+    return GetMaterialApp(
+      title: "Relive Travel",
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        scaffoldBackgroundColor: Colors.white,
+        fontFamily: 'Pretendard',
+      ),
+      getPages: RoutePage.page,
+      initialRoute: RouteName.home,
+    );
   }
 }
